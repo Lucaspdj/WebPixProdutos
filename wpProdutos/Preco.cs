@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entity
 {
-    public class Preco
+    public class Preco : Base
     {
         public int ID { get; set; }
         public int PrecoReal { get; set; }

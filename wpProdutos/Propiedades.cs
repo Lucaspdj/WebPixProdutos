@@ -1,6 +1,7 @@
 ﻿namespace Entity
 {
-    public class Propiedades
+    public class Propiedades : Base
     {
+    ///Logica Adcionavel
     }
 }
