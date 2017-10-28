@@ -49,7 +49,7 @@ namespace DomainBusiness
         /// <param name="produto">Produto que iraser deletado</param>
         /// <param name="token">Token valido</param>
         /// <returns>Verdadeiro: Removeu o produto / Falso: Houve falha</returns>
-        public static async Task<bool> RemoveAsync(Produto produto, string token)
+        public static async Task<bool> RemoveAsync(object produto, string token)
         {
             dynamic objEn = produto;
             string a = objEn.ID.ToString();
