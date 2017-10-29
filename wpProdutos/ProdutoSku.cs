@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entity
 {
-    public class ProdutoSku : Produto
+    public class ProdutoSku : Base
     {
         public int IDSku { get; set; }
         public string CodSkuExterno { get; set; }
