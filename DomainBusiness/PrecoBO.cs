@@ -49,7 +49,7 @@ namespace DomainBusiness
         /// <param name="Preco">Preco que iraser deletado</param>
         /// <param name="token">Token valido</param>
         /// <returns>Verdadeiro: Removeu o Preco / Falso: Houve falha</returns>
-        public static async Task<bool> RemoveAsync(Preco Preco, string token)
+        public static async Task<bool> RemoveAsync(Object Preco, string token)
         {
             dynamic objEn = Preco;
             string a = objEn.ID.ToString();

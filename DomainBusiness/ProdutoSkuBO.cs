@@ -8,7 +8,7 @@ using System;
 
 namespace DomainBusiness
 {
-    public static class ProdutoSkuSkuBO
+    public static class ProdutoSkuBO
     {
         /// <summary>
         /// Metodo de salvar ProdutoSku (Async)
@@ -49,7 +49,7 @@ namespace DomainBusiness
         /// <param name="ProdutoSku">ProdutoSku que iraser deletado</param>
         /// <param name="token">Token valido</param>
         /// <returns>Verdadeiro: Removeu o ProdutoSku / Falso: Houve falha</returns>
-        public static async Task<bool> RemoveAsync(ProdutoSku ProdutoSku, string token)
+        public static async Task<bool> RemoveAsync(Object ProdutoSku, string token)
         {
             dynamic objEn = ProdutoSku;
             string a = objEn.ID.ToString();
