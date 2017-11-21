@@ -29,7 +29,7 @@ namespace WebPixProdutos.Controllers
 
         [ActionName("DeletarProduto")]
         [HttpPost("{token}")]
-        public async Task<JsonResult> DeletarConfiguracao([FromBody]object produto, string token)
+        public async Task<JsonResult> DeletarProduto([FromBody]object produto, string token)
         {
 
             if (await ProdutoBO.RemoveAsync(produto, token))

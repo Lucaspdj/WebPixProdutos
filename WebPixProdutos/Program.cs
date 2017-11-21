@@ -14,12 +14,17 @@ namespace WebPixProdutos
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+
+            BuildWebHostAsync(args).GetAwaiter().GetResult().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+        public static async Task<IWebHost> BuildWebHostAsync(string[] args)
+        {
+            var url = await AuxNotStatic.GetInfoMotorAux("Produto", 1);
+            return WebHost.CreateDefaultBuilder(args)
+                 .UseStartup<Startup>()
+                 .UseUrls(url.Url)
+                 .Build();
+        }
     }
 }
