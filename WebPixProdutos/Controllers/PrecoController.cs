@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace WebPixPreco.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Preco")]
+    [Route("api/[controller]/[action]")]
     public class PrecoController : Controller
     {
         [HttpPost("{token}")]

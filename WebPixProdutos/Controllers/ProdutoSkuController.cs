@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace WebPixProdutoSku.Controllers
 {
     [Produces("application/json")]
-    [Route("api/ProdutoSku")]
+    [Route("api/[controller]/[action]")]
     public class ProdutoSkuController : Controller
     {
         [HttpPost("{token}")]

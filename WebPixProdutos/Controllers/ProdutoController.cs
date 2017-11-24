@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace WebPixProdutos.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Produto")]
+    [Route("api/[controller]/[action]")]
     public class ProdutoController : Controller
     {
         [HttpPost("{token}")]
@@ -22,9 +22,9 @@ namespace WebPixProdutos.Controllers
 
         [ActionName("GetAllProduto")]
         [HttpGet("{idCliente}/{token}")]
-        public async Task<IEnumerable<Produto>> GetAllProduto(int idCliente, string token)
+        public async Task<IEnumerable<Produto>> GetAllProduto(string idCliente, string token)
         {
-            return await ProdutoBO.GetAllAsync(idCliente, token);
+            return await ProdutoBO.GetAllAsync(int.Parse(idCliente), token);
         }
 
         [ActionName("DeletarProduto")]

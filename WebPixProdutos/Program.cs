@@ -23,7 +23,8 @@ namespace WebPixProdutos
             var url = await AuxNotStatic.GetInfoMotorAux("Produto", 1);
             return WebHost.CreateDefaultBuilder(args)
                  .UseStartup<Startup>()
-                 .UseUrls(url.Url)
+                 .UseUrls("http://localhost:5100")
+                 //.UseUrls(url.Url)
                  .Build();
         }
     }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace WebPixPropiedades.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Propiedades")]
+    [Route("api/[controller]/[action]")]
     public class PropiedadesController : Controller
     {
         [HttpPost("{token}")]
