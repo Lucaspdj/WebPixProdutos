@@ -28,6 +28,8 @@ namespace Repository.Migrations
 
                     b.Property<bool>("Ativo");
 
+                    b.Property<int>("IDProduto");
+
                     b.Property<DateTime>("DataFinal");
 
                     b.Property<DateTime>("DataInicio");
@@ -120,7 +122,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Descricao");
 
-                    b.Property<int>("IDSku");
+                    b.Property<int>("IDProduto");
 
                     b.Property<string>("Nome");
 
