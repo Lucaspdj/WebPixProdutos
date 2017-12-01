@@ -2,6 +2,7 @@
 {
     public class Propiedades : Base
     {
-    ///Logica Adcionavel
+        
+
     }
 }
