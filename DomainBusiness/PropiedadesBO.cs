@@ -13,7 +13,7 @@ namespace DomainBusiness
         /// <summary>
         /// Metodo de salvar Propiedades (Async)
         /// </summary>
-        /// <param name="Propiedades"> Objeto Produtp</param>
+        /// <param name="Propiedades"> Objeto Produto</param>
         /// <param name="token"> Token valido</param>
         /// <returns>Verdadeiro: Salvou o Propiedades / Falso: Houve falha</returns>
         public static async Task<bool> SaveAsync(Propiedades Propiedades, string token)
@@ -21,7 +21,26 @@ namespace DomainBusiness
             if (await SeguracaServ.validaTokenAsync(token))
             {
                 if (Propiedades.idCliente != 0)
-                    try { return PropiedadesRep.Save(Propiedades); } catch { return false; }
+                {
+
+                    //Salva Estrutura
+                    try
+                    {
+                        PropiedadesRep.SaveDept(Propiedades.Departamento);
+                    }
+                    catch { return false; }
+
+                    //Fim Esstrutura
+
+                    try
+                    {
+                        PropiedadesRep.SaveArquivos(Propiedades.ArquivosVinculado);
+
+                    }
+                    catch { return false; }
+                    throw new NotImplementedException();
+
+                }
                 else
                     return false;
             }

@@ -14,6 +14,7 @@ namespace WebPixProdutos.Controllers
         [ActionName("SaveProduto")]
         public async Task<JsonResult> SaveProduto([FromBody]Produto produto, string token)
         {
+
             if (await ProdutoBO.SaveAsync(produto, token))
                 return Json("Configuracao salva com sucesso");
             else
@@ -24,6 +25,7 @@ namespace WebPixProdutos.Controllers
         [HttpGet("{idCliente}/{token}")]
         public async Task<IEnumerable<Produto>> GetAllProduto(string idCliente, string token)
         {
+
             return await ProdutoBO.GetAllAsync(int.Parse(idCliente), token);
         }
 
