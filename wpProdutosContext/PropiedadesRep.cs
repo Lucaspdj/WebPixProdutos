@@ -39,6 +39,17 @@ namespace Repository
                 return false;
             }
         }
+
+        public static void SaveDept(List<Estrutura> departamento)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void SaveArquivos(List<Arquivo> arquivosVinculado)
+        {
+            throw new NotImplementedException();
+        }
+
         public static List<Propiedades> GetAll()
         {
             try

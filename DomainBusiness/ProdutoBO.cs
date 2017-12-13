@@ -20,6 +20,9 @@ namespace DomainBusiness
         {
             if (await SeguracaServ.validaTokenAsync(token))
             {
+
+
+
                 if (produto.idCliente != 0)
                     try { return ProdutoRep.Save(produto); } catch { return false; }
                 else

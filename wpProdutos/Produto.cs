@@ -18,5 +18,6 @@ namespace Entity
         public int EstoqueMinimo { get; set; }
         public string DescricaoLonga { get; set; }
         public Preco Preco { get; set; }
+        
     }
 }
