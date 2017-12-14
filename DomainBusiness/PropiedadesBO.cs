@@ -5,6 +5,7 @@ using Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Services;
 
 namespace DomainBusiness
 {
@@ -23,10 +24,13 @@ namespace DomainBusiness
                 if (Propiedades.idCliente != 0)
                 {
 
+                    int id = PropiedadesRep.Save(Propiedades);
+
                     //Salva Estrutura
                     try
                     {
-                        PropiedadesRep.SaveDept(Propiedades.Departamento);
+                        List<Estrutura> estruturas = new List<Estrutura>();
+                        PropiedadesRep.SaveDept(Propiedades.Departamento, Propiedades.UsuarioCriacao, id);
                     }
                     catch { return false; }
 
@@ -38,6 +42,9 @@ namespace DomainBusiness
 
                     }
                     catch { return false; }
+
+                   
+
                     throw new NotImplementedException();
 
                 }
