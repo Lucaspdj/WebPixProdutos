@@ -30,22 +30,26 @@ namespace DomainBusiness
                     try
                     {
                         List<Estrutura> estruturas = new List<Estrutura>();
-                        PropiedadesRep.SaveDept(Propiedades.Departamento, Propiedades.UsuarioCriacao, id);
+                        PropiedadesRep.SaveDept(
+                            Propiedades.Departamento,
+                            Propiedades.UsuarioCriacao,
+                            idPropiedade: id,
+                            idCliente: Propiedades.idCliente);
                     }
                     catch { return false; }
 
-                    //Fim Esstrutura
-
+                    //Salva Arquivo
                     try
                     {
-                        PropiedadesRep.SaveArquivos(Propiedades.ArquivosVinculado);
-
+                        PropiedadesRep.SaveArquivos(
+                            Propiedades.ArquivosVinculado,
+                            Propiedades.UsuarioCriacao,
+                            idPropiedade: id,
+                            idCliente: Propiedades.idCliente);
                     }
                     catch { return false; }
 
-                   
-
-                    throw new NotImplementedException();
+                    return true;
 
                 }
                 else

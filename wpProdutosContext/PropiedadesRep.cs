@@ -40,60 +40,6 @@ namespace Repository
                 return 0;
             }
         }
-        public static bool SaveDept(List<Estrutura> departamento,int idUsuario,int idPropiedade)
-        {
-
-            foreach (Estrutura obj in departamento)
-            {
-                obj.dataCriacao = DateTime.Now;
-                obj.dataEdicao = DateTime.Now;
-                try
-                {
-                    if (obj.ID == 0)
-                    {
-
-                        var query = String.Format(
-                                    @"insert into EstruturaXPropriedade   
-                                    values({0}, {1}, '{2}', '{3}', {4}, {5})",
-                                    obj.ID,
-                                    idPropiedade,
-                                    DateTime.Now,
-                                    DateTime.Now,
-                                    idUsuario,
-                                    idUsuario);
-
-
-                        using (var db = new WebPixContext())
-                        {
-                            int noOfRowInserted = db.Database.ExecuteSqlCommand(query);
-                        }
-                        //return true;
-                    }
-                    else
-                    {
-                        using (var db = new WebPixContext())
-                        {
-                            //db.Propiedades.Update(obj);
-                            //db.SaveChanges();
-                            //return true;
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    //return false;
-                }
-
-            }
-            return true;
-
-
-        }
-        public static void SaveArquivos(List<Arquivo> arquivosVinculado)
-        {
-            throw new NotImplementedException();
-
-        }
         public static List<Propiedades> GetAll()
         {
             try
@@ -128,5 +74,83 @@ namespace Repository
             }
 
         }
+
+
+        #region Metodos exclusivos para salvamento de tabelas vinculados com outros motores (OLHAR ECO SISTEMA WP)
+
+        public static bool SaveDept(List<Estrutura> departamento, int idUsuario, int idPropiedade,int idCliente)
+        {
+
+            foreach (Estrutura obj in departamento)
+            {
+                obj.dataCriacao = DateTime.Now;
+                obj.dataEdicao = DateTime.Now;
+                try
+                {
+                    var query = String.Format(
+                                @"insert into EstruturaXPropriedade   
+                                    values({0}, {1}, '{2}', '{3}', {4}, {5},{6})",
+                                obj.ID,
+                                idPropiedade,
+                                String.Format("{0:yyyy/MM/dd}", DateTime.Now),
+                                String.Format("{0:yyyy/MM/dd}", DateTime.Now),
+                                idUsuario,
+                                idUsuario,
+                                idCliente);
+
+
+                    using (var db = new WebPixContext())
+                    {
+                        int noOfRowInserted = db.Database.ExecuteSqlCommand(query);
+                    }
+                }
+                catch (Exception e)
+                {
+                }
+
+            }
+            return true;
+
+
+        }
+        public static bool SaveArquivos(List<Arquivo> arquivosVinculado, int idUsuario, int idPropiedade,int idCliente)
+        {
+
+            foreach (Arquivo obj in arquivosVinculado)
+            {
+                obj.dataCriacao = DateTime.Now;
+                obj.dataEdicao = DateTime.Now;
+                try
+                {
+                    var query = String.Format(
+                                @"insert into ArquivoXPropiedade   
+                                    values({0}, {1}, '{2}', '{3}', {4}, {5},{6})",
+                                obj.ID,
+                                idPropiedade,
+                                String.Format("{0:yyyy/MM/dd}", DateTime.Now),
+                                String.Format("{0:yyyy/MM/dd}", DateTime.Now),
+                                idUsuario,
+                                idUsuario,
+                                idCliente);
+
+
+                    using (var db = new WebPixContext())
+                    {
+                        int noOfRowInserted = db.Database.ExecuteSqlCommand(query);
+                    }
+                }
+                catch (Exception e)
+                {
+                }
+
+            }
+            return true;
+
+
+        }
+
+        #endregion
+
+
     }
 }
