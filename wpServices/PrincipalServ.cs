@@ -14,7 +14,7 @@ namespace Services
         public static async Task<bool> SalvaArquivoAsync(int IDCliente, int IdUsuario,List<Arquivo> arquivo)
         {
 
-            RestClient client = new RestClient("http://seguranca.mundowebpix.com:5300/api/");
+            RestClient client = new RestClient("http://seguranca.mundowebpix.com.br:5300/api/");
             var url = "Seguranca/Principal/SalvarListaArquivo/" + IDCliente + "/" + IdUsuario;
             RestRequest request = null;
 
@@ -31,7 +31,7 @@ namespace Services
         public static async Task<List<Estrutura>> GetAllEstruturaAsync(int IDCliente, int IdUsuario)
         {
 
-            RestClient client = new RestClient("http://seguranca.mundowebpix.com:5300/api/");
+            RestClient client = new RestClient("http://seguranca.mundowebpix.com.br:5300/api/");
             var url = "Seguranca/Principal/buscarEstruturas/" + IDCliente + "/" + IdUsuario;
             RestRequest request = null;
 
